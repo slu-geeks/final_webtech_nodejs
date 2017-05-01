@@ -3,31 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Monitoring</title>
-    <link rel="stylesheet" type="text/css" href="sampleCss.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <div class="container">
-<div class="left">
-    <h1>QUERY</h1>
-    <form id="SubmitDates" method="POST" enctype="/AdminMonitor" >
-        <h3>REQUEST</h3>
-        From: <input name="from" type="date" >
-        <br>
-        To: <input name="to" type="date" >
-        <br>
-        <input type="submit" value="submit"/>
+<div class="row" >
+<div  class="col-sm-4">
 
-        <h3>FEEDBACK</h3>
-        From: <input name="fromF" type="date" >
-        <br>
-        to: <input name="toF" type="date" >
-        <br>
-        <input type="submit" value="submit"/>
+    <h1>Admin Monitoring</h1>
+    <form id="SubmitDates" method="POST" enctype="/AdminMonitor">
+        <div class="form-group">
+            <h3>Request</h3>
+            <label for="from">Date from:</label>
+            <input type="date" class="form-control" id="from"  name="from">
+        </div>
+        <div class="form-group">
+            <label for="to">Date to:</label>
+            <input type="date" class="form-control" id="to"  name="to">
+        </div>
+
+        <button type="submit" value="submit" class="btn btn-default">Submit</button>
+    </form>
+
+    <form id="SubmitDates" method="POST" enctype="/AdminMonitor">
+        <div class="form-group">
+            <h3>Feedback</h3>
+            <label for="fromF">Date from:</label>
+            <input type="date" class="form-control" id="fromF"  name="fromF">
+        </div>
+        <div class="form-group">
+            <label for="toF">Date to:</label>
+            <input type="date" class="form-control" id="toF"  name="toF">
+        </div>
+
+        <button type="submit" value="submit" class="btn btn-default">Submit</button>
     </form>
 </div>
 
-
-<div class="right">
+<div class="col-sm-5">
+<div  class="table">
 <table>
     <tr>
         <th>Request ID</th>
@@ -60,7 +79,7 @@
 
 <table>
     <tr>
-        <th>Feedback ID</th>
+        <th >Feedback ID</th>
         <th>Ranking</th>
         <th>Contact Number</th>
         <th>Feedback Messages</th>
@@ -85,6 +104,7 @@
     </tr>
     <% } %>
 </table>
+
 
 </div>
 </div>
