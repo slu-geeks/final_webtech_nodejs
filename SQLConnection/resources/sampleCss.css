@@ -1,0 +1,38 @@
+
+.left{
+    padding:10px;
+    margin-top:0;
+    text-align:left;
+    float:left;
+    width:10%;
+}
+
+.right{
+    padding:10px;
+    text-align:right;
+    float:right;
+}
+h3{
+    margin-top: 100px;
+}
+table, th, td {
+    border: 1px solid black;
+    margin-top:0px;
+    text-align:center;
+    margin-top: 10px;
+}
+th{
+    background-color: #0e2f63;
+    color:white;
+}
+.container{
+    width:90%;
+    height:800px;
+    margin-left:10%;
+    margin-top:10%;
+    border:solid;
+}
+h2{
+    font-size: 50px;
+    margin:0;
+}

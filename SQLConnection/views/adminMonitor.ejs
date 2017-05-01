@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monitoring</title>
+    <link rel="stylesheet" type="text/css" href="sampleCss.css">
+</head>
+<body>
+<div class="container">
+<div class="left">
+    <h1>QUERY</h1>
+    <form id="SubmitDates" method="POST" enctype="/AdminMonitor" >
+        <h3>REQUEST</h3>
+        From: <input name="from" type="date" >
+        <br>
+        To: <input name="to" type="date" >
+        <br>
+        <input type="submit" value="submit"/>
+
+        <h3>FEEDBACK</h3>
+        From: <input name="fromF" type="date" >
+        <br>
+        to: <input name="toF" type="date" >
+        <br>
+        <input type="submit" value="submit"/>
+    </form>
+</div>
+
+
+<div class="right">
+<table>
+    <tr>
+        <th>Request ID</th>
+        <th>Start Servicing</th>
+        <th>End Servicing</th>
+        <th>Request Status</th>
+        <th>Service ID</th>
+        <th>Account ID</th>
+    </tr>
+    <%
+    for(var i=0; i <data.length; i++){
+        var s = new Date(data[i].start_servicing);
+        var e = new Date(data[i].end_servicing);
+    %>
+        <tr>
+            <td><%= data[i].request_id %></td>
+            <td><%= s.toLocaleDateString()%></td>
+            <td><%= e.toLocaleDateString() %></td>
+            <td><%= data[i].request_status %></td>
+            <td><%= data[i].service_id %></td>
+            <td><%= data[i].account_id %></td>
+        </tr>
+    <% } %>
+</table>
+
+
+
+
+
+
+<table>
+    <tr>
+        <th>Feedback ID</th>
+        <th>Ranking</th>
+        <th>Contact Number</th>
+        <th>Feedback Messages</th>
+        <th>Account ID</th>
+        <th>Feedback Date</th>
+        <th>Feedback Status</th>
+
+    </tr>
+    <%
+    for(var i=0; i <data2.length; i++){
+        var f = new Date(data2[i].feedback_date);
+        /*var c = new Date(data2[i].consideration_date);*/
+    %>
+    <tr>
+        <td><%= data2[i].feedback_id %></td>
+        <td><%= data2[i].ranking %></td>
+        <td><%= data2[i].contacting_phone_number %></td>
+        <td><%= data2[i].feedback_messages %></td>
+        <td><%= data2[i].account_id %></td>
+        <td><%= f.toLocaleDateString()%></td>
+        <td><%= data2[i].feedback_status %></td>
+    </tr>
+    <% } %>
+</table>
+
+</div>
+</div>
+
+</body>
+</html>
