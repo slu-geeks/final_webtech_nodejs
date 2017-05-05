@@ -44,7 +44,31 @@ app.post('/adminMonitor', urlencodedParser, function(req, res){
 });
 
 
+/* app.get('/adminApproval', function(req, res){
+ connection.query("SELECT * FROM service_request ORDER BY start_servicing DESC; " +
+ "SELECT * FROM feedback ORDER BY feedback_date DESC;", [1, 2],function(err, rows, fields) {
+ if (err)
+ alert("...");
+ else {
+ res.render('adminMonitor', {data: rows[0], data2: rows[1]});
+ }
+ });
+ });
 
+ app.post('/adminApproval', urlencodedParser, function(req, res){
+ var data = req.body;
+ connection.query("SELECT * FROM service_request WHERE start_servicing BETWEEN '"+data.from +"' AND '"+data.to+"' " +
+ "ORDER BY start_servicing DESC; " +
+ "SELECT * FROM feedback WHERE feedback_date BETWEEN '"+data.fromF +"' AND '"+data.toF+"' " +
+ "ORDER BY feedback_date DESC;", function(err, rows, fields) {
+ if (err)
+ alert("...");
+ else {
+ res.render('adminMonitor', {data: rows[0], data2: rows[1]});
+ }
+ });
+ });
+ */
 
 
 
