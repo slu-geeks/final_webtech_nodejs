@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log-in</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<form id="SubmitApproval" method="POST" enctype="adminApproval">
+    <table>
+        <tr>
+            <th>account_id</th>
+            <th>address</th>
+            <th>first_name</th>
+            <th>last_name </th>
+            <th>middle_name</th>
+            <th>status</th>
+            <th>email_address</th>
+            <th>birthday</th>
+            <th>phone_number</th>
+            <th>role_id</th>
+            <th>Approval</th>
+        </tr>
+
+        <%
+        for(var i=0; i <data.length; i++){
+            var b = new Date(data[i].birthday);
+        %>
+        <tr>
+            <td><%= data[i].account_id %></td>
+            <td><%= data[i].address%></td>
+            <td><%= data[i].first_name %></td>
+            <td><%= data[i].last_name %></td>
+            <td><%= data[i].middle_name %></td>
+            <td><%= data[i].status %></td>
+            <td><%= data[i].email_address %></td>
+            <td><%= b.toLocaleDateString() %></td>
+            <td><%= data[i].phone_number %></td>
+            <td><%= data[i].role_id %></td>
+            <td>
+            <!--<input type ="text" name="wag">-->
+
+                <!--<input type="text" name="samplesss">-->
+
+                <select name="samplesss">
+                    <option  value="01">Accept</option>
+                    <option  value="02">Decline</option>
+                    <option  value="03">Locked</option>
+                    <option  value="04">Disabled</option>
+                </select>
+            </td>
+        </tr>
+        <% } %>
+    </table>
+    <button type="submit" value="Submit">Submit</button>
+
+
+</form>
+
+</body>
+</html>
