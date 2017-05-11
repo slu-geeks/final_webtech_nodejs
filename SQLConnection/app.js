@@ -102,7 +102,7 @@ app.post('/adminMonitor', urlencodedParser, function(req, res){
         if (err)
             alert("...");
         else {
-            res.render('adminMonitor', {data: rows[0], data2: rows[1], username: user});
+            res.render('adminMonitor', {data: rows[0], data2: rows[1], username: sess.email});
         }
     });
 });
@@ -133,6 +133,22 @@ app.get('/adminApproval', function(req, res){
      }
 
  });
+
+
+app.get('/Logout',function(req,res){
+    req.session.destroy(function(err) {
+        if(err) {
+            console.log(err);
+        } else {
+            res.render('Out');
+        }
+    });
+});
+
+
+
+
+app.listen(3000);
 /*
      for(var i=1; i < sukat-1; i++){
          var lastName = ""+row[i].last_name+"";
@@ -152,22 +168,3 @@ app.get('/adminApproval', function(req, res){
              });
      }*/
 
-
-
-
-
-
-app.get('/Logout',function(req,res){
-    req.session.destroy(function(err) {
-        if(err) {
-            console.log(err);
-        } else {
-            res.render('Out');
-        }
-    });
-});
-
-
-
-
-app.listen(3000);
