@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Admin Approval</title>
+    <title>Log-in</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -11,7 +11,7 @@
 
 </head>
 <body>
-<form id="SubmitApproval" method="POST" enctype="adminApproval">
+<form id="SubmitStatus" method="POST" enctype="multipart/form-data">
     <table>
         <tr>
             <th>account_id</th>
@@ -43,24 +43,27 @@
             <td><%= data[i].phone_number %></td>
             <td><%= data[i].role_id %></td>
             <td>
-            <!--<input type ="text" name="wag">-->
-
-                <!--<input type="text" name="samplesss">-->
-
-                <select name="samplesss">
+                <input type="txt" class="form-control" id="<%= data[i].last_name %>"  name="<%= data[i].last_name %>">
+                <!--<select name="">
                     <option  value="01">Accept</option>
                     <option  value="02">Decline</option>
-                    <option  value="03">Locked</option>
-                    <option  value="04">Disabled</option>
-                </select>
+                </select>-->
             </td>
         </tr>
+
         <% } %>
     </table>
+
     <button type="submit" value="Submit">Submit</button>
-
-
 </form>
-
+<form id="SubmitDates" method="POST" enctype="/AdminMonitor">
+    <input type="password" class="form-control" id="to"  name="testing">
+    <button type="submit" value="submit" class="btn btn-default">Log-in</button>
+</form>
+<footer class="copyright">
+    <div >
+        <p>© 2017 - All Rights with SLU-GEEKS Pet Services</p>
+    </div>
+</footer>
 </body>
 </html>

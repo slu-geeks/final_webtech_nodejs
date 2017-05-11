@@ -2,16 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Log-in</title>
-    <meta charset="utf-8">
+    <title>Logged-Out!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/adminDesign.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 <body>
-<h1>successfully Log-Out</h1>
-<a href="Login">Log-in</a>
+<div class="jumbotron">
+    <div class="container text-center">
+        <h1>SLU-GEEKS Pet Services</h1>
+        <p>Where your pet matters.</p>
+    </div>
+</div>
+<!-- Navigations -->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img src="/paws.png" alt="SLU-Geeks" style="width:35px;height:35px;"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li ><a href="Login">Sign-in</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row" >
+        <div  class="col-sm-5">
+            <ul class="loggedOutContent">
+                <li><h1>Successfully Logged-Out!</h1><p align="center">See you soon.</p></li><br>
+                <li><img src="/pet-lout.png" alt="logged-out" style="width: 400px;height: 400px"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<footer class="copyright">
+    <div >
+        <p>© 2017 - All Rights with SLU-GEEKS Pet Services</p>
+    </div>
+</footer>
 </body>
 </html>
