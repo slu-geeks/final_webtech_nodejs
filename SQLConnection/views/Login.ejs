@@ -14,6 +14,7 @@
 <body>
 <div class="jumbotron">
     <div class="container text-center">
+        <img src="/main-logo.png" alt="main-logo" height="200px" width="200px">
         <h1>SLU-GEEKS Pet Services</h1>
         <p>Where your pet matters.</p>
     </div>
@@ -27,7 +28,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><img src="/paws.png" alt="Mountain View" style="width:35px;height:35px;"></a>
+            <!--<a class="navbar-brand" href="#"><img src="/paws.png" alt="Mountain View" style="width:35px;height:35px;"></a> -->
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
@@ -65,7 +66,26 @@
 <footer class="copyright">
         <div >
             <p>© 2017 - All Rights with SLU-GEEKS Pet Services</p>
+            <p><%=getDateTime()%></p>
         </div>
+        <%
+
+        function getDateTime() {
+
+            var date = new Date();
+
+            var year = date.getFullYear();
+
+            var month = date.getMonth() + 1;
+            month = (month < 10 ? "0" : "") + month;
+
+            var day  = date.getDate();
+            day = (day < 10 ? "0" : "") + day;
+
+            return month + ":" + day + ":" + year;
+
+        }
+        %>
 </footer>
 </body>
 </html>

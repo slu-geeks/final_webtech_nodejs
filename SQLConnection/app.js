@@ -120,48 +120,38 @@ app.get('/Logout',function(req,res){
 
 
 
-app.listen(3000);
+var row;
+var sukat;
 
-
-
-
-
-
-
-/*app.get('/adminApproval', function(req, res){
-    connection.query("SELECT * from user_account where status = '03';", function(err, rows) {
+app.get('/adminApproval', function(req, res){
+    connection.query("SELECT * from user_account where status = '01';", function(err, rows) {
         if (err)
-            alert("...");
+            console.log(err);
         else {
             res.render('adminApproval', {data: rows});
             sukat = rows.length;
             row = rows;
-            console.log(row);
         }
     });
 });
 
 
-
-app.post('/adminApproval', function(req, res){
+app.post('/adminApproval',urlencodedParser, function(req, res){
     var data = req.body;
-    console.log(data.testing);
-    /!*   for(var i=0; i<sukat; i++){
-     name = row[i].last_name;
-     console.log(data.name);
-     /!*name = row[i].last_name;
-     connection.query("UPDATE user_account SET ? WHERE ? ;",
-     [{ Name: name }, { UserId: userId }], function(err, result) {
-     if (err)
-     alert("...");
-     else {
-     console.log(result.affectedRows + " record(s) updated");
-     }
-     });
-     *!/
-     }*!/
+    var arr = data.samplesss;
 
-});*/
+    for(var i=0; i < arr.length; i++) {
+        connection.query("UPDATE user_account SET status = '"+arr[i]+"' WHERE last_name = '"+row[i].last_name+"'; ", function(err, rows){
+        });
+    }
+
+});
+
+
+app.listen(3000);
+
+
+
 
 
 
