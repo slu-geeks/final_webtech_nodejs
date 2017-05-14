@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log-in</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/adminDesign.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="jumbotron">
+    <div class="container text-center">
+        <img src="/main-logo.png" alt="main-logo" height="200px" width="200px">
+        <h1>SLU-GEEKS Pet Services</h1>
+        <p>Where your pet matters.</p>
+    </div>
+</div>
+<!-- Navigations -->
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!--<a class="navbar-brand" href="#"><img src="/paws.png" alt="Mountain View" style="width:35px;height:35px;"></a> -->
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Sign-in</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row" >
+        <div  class="col-sm-4">
+
+            <h1>Admin Log-in</h1>
+            <form id="SubmitDates" method="POST" enctype="/AdminMonitor">
+                <div class="form-group">
+                    <h3>Welcome.</h3>
+                    <label for="from">Usename:</label>
+                    <input type="text" class="form-control" id="from"  name="usernames">
+                </div>
+                <div class="form-group">
+                    <label for="to">Password:</label>
+                    <input type="password" class="form-control" id="to"  name="passwords">
+                </div>
+
+                <button type="submit" value="submit" class="btn btn-default">Log-in</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!--footer start from here-->
+
+<footer class="copyright">
+        <div >
+            <p>© 2017 - All Rights with SLU-GEEKS Pet Services</p>
+            <p><%=getDateTime()%></p>
+        </div>
+        <%
+
+        function getDateTime() {
+
+            var date = new Date();
+
+            var year = date.getFullYear();
+
+            var month = date.getMonth() + 1;
+            month = (month < 10 ? "0" : "") + month;
+
+            var day  = date.getDate();
+            day = (day < 10 ? "0" : "") + day;
+
+            return month + ":" + day + ":" + year;
+
+        }
+        %>
+</footer>
+</body>
+</html>

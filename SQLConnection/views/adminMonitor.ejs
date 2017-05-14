@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monitoring</title>
+    <meta charset="utf-8">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/adminDesign.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron">
+    <div class="container text-center">
+        <img src="/main-logo.png" alt="main-logo" height="200px" width="200px">
+        <h1>Admin Monitor</h1>
+        <p>Requests and Feedback Log</p>
+    </div>
+</div>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+
+                <li class="active"><a href="#">Monitor</a></li>
+                <li><a href="adminApproval">Approvals</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> <b>Welcome <%= username%> !</b></a></li>
+                <li><a href="Logout"><span class="glyphicon glyphicon-info-sign"></span> Log-Out</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-full">
+<div class="row" >
+<div  class="col-sm-3">
+    <form id="SubmitDates" method="POST" enctype="/AdminMonitor">
+        <div class="form-group">
+            <h3>Request</h3>
+            <label for="from">Date from:</label>
+            <input type="date" class="form-control" id="from"  name="from">
+        </div>
+        <div class="form-group">
+            <label for="to">Date to:</label>
+            <input type="date" class="form-control" id="to"  name="to">
+        </div>
+
+        <div class="form-group">
+            <h3>Feedback</h3>
+            <label for="fromF">Date from:</label>
+            <input type="date" class="form-control" id="fromF"  name="fromF">
+        </div>
+        <div class="form-group">
+            <label for="toF">Date to:</label>
+            <input type="date" class="form-control" id="toF"  name="toF">
+        </div>
+
+        <button type="submit" value="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
+
+
+<div class="table-responsive">
+
+<table class="table table-hover">
+    <tr>
+        <th>Request ID</th>
+        <th>Start Servicing</th>
+        <th>End Servicing</th>
+        <th>Service </th>
+        <th>Home Owner</th>
+        <th>Service Provider</th>
+        <th>Request Status</th>
+    </tr>
+    <%
+    for(var i=0; i <data.length; i++){
+        var s = new Date(data[i].start_servicing);
+        var e = new Date(data[i].end_servicing);
+    %>
+    <tr>
+        <td><i><b><%= data[i].request_id %></b></i></td>
+
+        <%if (data[i].start_servicing == null) { %>
+        <td><%= data[i].start_servicing%></td>
+        <% } else { %>
+        <td><%= s.toLocaleDateString()%></td>
+        <% }%>
+
+        <%if (data[i].end_servicing == null) { %>
+        <td><%= data[i].end_servicing%></td>
+        <% } else { %>
+        <td><%= e.toLocaleDateString() %></td>
+        <%} %>
+
+        <td><%= data[i].service_name%></td>
+        <td><%= data[i].HomeOwner %></td>
+        <td><%= data[i].ServiceProvider %></td>
+        <td><%= data[i].request_status %></td>
+    </tr>
+    <% } %>
+</table>
+
+
+<br>
+
+
+
+<table class="table table-hover">
+    <tr>
+        <th>Feedback ID</th>
+        <th>Home Owner</th>
+        <th>Feedback Date</th>
+        <th>Feedback Messages</th>
+        <th>Contact Number</th>
+        <th>Ranking</th>
+        <th>Feedback Status</th>
+        <th>Consideration Date</th>
+        <th>Service Provider</th>
+        <th>Checked Description</th>
+
+
+    </tr>
+    <%
+    for(var i=0; i <data2.length; i++){
+        var f = new Date(data2[i].feedback_date);
+        var c = new Date(data2[i].consideration_date);
+    %>
+    <tr>
+        <td><i><b><%= data2[i].feedback_id %></b></i></td>
+        <td><%= data2[i].HomeOwner %></td>
+
+        <%if (data2[i].feedback_date == null) { %>
+        <td><%= data2[i].feedback_date%></td>
+        <% } else { %>
+        <td><%= f.toLocaleDateString()%></td>
+        <% }%>
+
+
+        <td><%= data2[i].feedback_messages %></td>
+        <td><%= data2[i].contacting_phone_number %></td>
+        <td><%= data2[i].ranking %></td>
+        <td><%= data2[i].feedback_status %></td>
+
+        <%if (data2[i].consideration_date == null) { %>
+        <td><%= data2[i].consideration_date%></td>
+        <% } else { %>
+        <td><%= c.toLocaleDateString() %></td>
+        <%} %>
+
+        <td><%= data2[i].ServiceProvider %></td>
+        <td><%= data2[i].checked_description %></td>
+
+    </tr>
+    <% } %>
+
+</table>
+    <form id="SubmitDates" method="POST" enctype="/AdminMonitor">
+    <center>
+        <button name="Page" type="submit" value="1" >1</button>
+        <button name="PageUno" type="submit" value="2">2</button>
+        <button name="PageDos" type="submit" value="3">3</button>
+    </center>
+    </form>
+</div>
+</div>
+</div>
+</body>
+
+</html>
