@@ -26,7 +26,25 @@ var sess;
 
 
 app.get('/Login', function(req, res){
-    res.render('Login');
+    sess = req.session;
+    var data = req.query["usernames"];
+    var data2 = req.query["passwords"];
+
+    if(data && data2){
+        sess = req.session;
+        connection.query("SELECT * FROM user_account WHERE role_id = '3' and username = '"+data+"' and password = '"+data2+"'; ", function(err, rows, fields) {
+            if (err)
+                console.log(err);
+            else if (rows == '')
+                res.render('error');
+            else {
+                sess.email= data2;
+                res.redirect('adminMonitor');
+            }
+        });
+    }else{
+        res.render('Login');
+    }
 });
 
 
